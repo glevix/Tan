@@ -28,6 +28,7 @@
 #define BLACK_TO_WHITE(x)       (x & 0b01111111)
 
 typedef uint8_t Piece;
+typedef Piece[8][8] Board;
 
 typedef struct Location
 {
@@ -48,10 +49,7 @@ typedef struct Player
     char (*decideDraw)(Board); //callback for deciding on whether a draw offer should be accepted
 } Player;
 
-typedef struct Board
-{
-    Piece board[8][8];
-} Board;
+
 
 typedef struct Game
 {
