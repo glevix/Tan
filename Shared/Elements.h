@@ -24,8 +24,17 @@
 #define WHITE           (0)
 #define BLACK           (1)
 
+#define AWAIT_MOVE                  (0)
+#define WIN_WHITE                   (1)
+#define WIN_BLACK                   (2)
+#define DRAW_STALEMATE              (3)
+#define DRAW_INSUFFICIENT_MATERIAL  (4)
+#define DRAW_REPETITION             (5)
+#define DRAW_FIFTY                  (6)
+
 #define WHITE_TO_BLACK(x)       (x | 0b10000000)
 #define BLACK_TO_WHITE(x)       (x & 0b01111111)
+
 
 #define MAX_PLAYER_NAME (30)
 
@@ -36,6 +45,7 @@ typedef uint8_t Piece;
 typedef struct Board
 {
     Piece pieces[8][8];
+    char toPlay;
 } Board;
 
 typedef struct Location
@@ -71,8 +81,8 @@ typedef struct Game
     Board board;
     Player white;
     Player black;
-    char toPlay;
     TimeFormat tf;
+    char state;
 } Game;
 
 

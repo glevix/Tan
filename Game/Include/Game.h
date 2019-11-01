@@ -40,6 +40,7 @@ Game *newGame(Player p1, Player p2, Board *board, int white, int toPlay, TimeFor
  */
 void initBoard(Board *board);
 
+
 /**
  * Starts gameplay
  *

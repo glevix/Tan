@@ -11,6 +11,10 @@
 Game *newGame(Player p1, Player p2, Board *board, int white, int toPlay, TimeFormat tf)
 {
     Game *game = malloc(sizeof(Game));
+    if (board)
+        memcpy(board, &(game->board), sizeof(Board));
+    else
+        initBoard(&(game->board));
     if (white == RANDOM)
     {
         srand(time(0));
@@ -32,18 +36,15 @@ Game *newGame(Player p1, Player p2, Board *board, int white, int toPlay, TimeFor
     switch (toPlay)
     {
         case WHITE:
-            game->toPlay = WHITE;
+            game->board.toPlay = WHITE;
             break;
         case BLACK:
-            game->toPlay = BLACK;
+            game->board.toPlay = BLACK;
             break;
         default:
             return 0;
     }
-    if (board)
-        memcpy(board, &(game->board), sizeof(Board));
-    else
-        initBoard(&(game->board));
+    //todo determine game.status
     game->tf = tf;
     return game;
 }
