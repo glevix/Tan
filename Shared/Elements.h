@@ -27,8 +27,16 @@
 #define WHITE_TO_BLACK(x)       (x | 0b10000000)
 #define BLACK_TO_WHITE(x)       (x & 0b01111111)
 
+#define MAX_PLAYER_NAME (30)
+
+typedef unsigned char uint8_t;
+
 typedef uint8_t Piece;
-typedef Piece[8][8] Board;
+
+typedef struct Board
+{
+    Piece pieces[8][8];
+} Board;
 
 typedef struct Location
 {
@@ -45,11 +53,18 @@ typedef struct Move
 typedef struct Player
 {
     char name[MAX_PLAYER_NAME + 1]; //name of player
-    Move (*generate)(Board); //callback for producing a move
-    char (*decideDraw)(Board); //callback for deciding on whether a draw offer should be accepted
+    Move (*generate)(Board* board); //callback for producing a move
+    char (*decideDraw)(Board* board); //callback for deciding on whether a draw offer should be accepted
 } Player;
 
-
+typedef struct TimeFormat
+{
+    unsigned int startingTimeSeconds;
+    unsigned int standardIncrement;
+    unsigned int timeControl;
+    unsigned int timeControlSeconds;
+    unsigned int timeControlIncrement;
+} TimeFormat;
 
 typedef struct Game
 {

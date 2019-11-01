@@ -56,5 +56,8 @@ Module.symvers
 Mkfile.old
 dkms.conf
 
+# Cmake compilation artifacts
+cmake-build-debug/
+
 # IDE files
 .idea/

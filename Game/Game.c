@@ -3,9 +3,10 @@
 //
 
 #include <stdlib.h>
-#include<time.h>
+#include <string.h>
+#include <time.h>
 
-#include "Elements.h"
+#include "Game.h"
 
 Game *newGame(Player p1, Player p2, Board *board, int white, int toPlay, TimeFormat tf)
 {
@@ -56,20 +57,20 @@ void initBoard(Board *board)
 {
     for (int i = 0; i < 8; i++)
     {
-        board[i][1] = WHITE_PAWN;
-        board[i][6] = BLACK_PAWN;
+        board->pieces[i][1] = WHITE_PAWN;
+        board->pieces[i][6] = BLACK_PAWN;
     }
     for (int i = 0; i < 3; i++)
     {
         Piece white = WHITE_ROOK << i;
         Piece black = WHITE_TO_BLACK(white);
-        board[i][0] = white;
-        board[7 - i][0] = white;
-        board[i][7] = black;
-        board[7 - i][7] = black;
+        board->pieces[i][0] = white;
+        board->pieces[7 - i][0] = white;
+        board->pieces[i][7] = black;
+        board->pieces[7 - i][7] = black;
     }
-    board[3][0] = WHITE_QUEEN;
-    board[4][0] = WHITE_KING;
-    board[3][7] = BLACK_QUEEN;
-    board[4][7] = BLACK_KING;
+    board->pieces[3][0] = WHITE_QUEEN;
+    board->pieces[4][0] = WHITE_KING;
+    board->pieces[3][7] = BLACK_QUEEN;
+    board->pieces[4][7] = BLACK_KING;
 }

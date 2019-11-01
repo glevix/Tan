@@ -5,6 +5,8 @@
 #ifndef TAN_GAME_H
 #define TAN_GAME_H
 
+#include "Elements.h"
+
 #define RANDOM          (0)
 #define PLAYER1         (1)
 #define PLAYER2         (2)
@@ -37,5 +39,13 @@ Game *newGame(Player p1, Player p2, Board *board, int white, int toPlay, TimeFor
  * @param board Pointer to board to be initialized
  */
 void initBoard(Board *board);
+
+/**
+ * Starts gameplay
+ *
+ * @param game Initiated game structure
+ * @return
+ */
+void startGame(Game* game);
 
 #endif //TAN_GAME_H
