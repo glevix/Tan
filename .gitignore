@@ -40,6 +40,7 @@
 *.i*86
 *.x86_64
 *.hex
+Tan
 
 # Debug files
 *.dSYM/
@@ -58,6 +59,11 @@ dkms.conf
 
 # Cmake compilation artifacts
 cmake-build-debug/
+CMakeCache.txt
+CMakeFiles/
+Makefile
+*.cmake
 
 # IDE files
 .idea/
+
